@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "sls": "serverless"
+  },
+  "devDependencies": {
+    "serverless": "3.38.0",
+    "serverless-appsync-plugin": "^2.6.0"
+  },
+  "name": "socialbug-backend"
+}
