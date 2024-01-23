@@ -18,7 +18,7 @@ type Query {
 
   getFollowers(userId: ID!, limit: Int!, nextToken: String): ProfilesPage!
 
-  getFollowing(userId: ID!, limit: Int!, nextToken: String): TweetsPage!
+  getFollowing(userId: ID!, limit: Int!, nextToken: String): ProfilesPage!
 }
 
 type Mutation {
@@ -29,6 +29,8 @@ type Mutation {
   like(tweetId: ID!): Boolean!
 
   unlike(tweetId: ID!): Boolean!
+
+  retweet(tweetId: ID!): Boolean!
 
   unretweet(tweetId: ID!): Boolean!
 
@@ -43,7 +45,7 @@ input ProfileInput {
   name: String!
   imageUrl: AWSURL
   backgroundImageUrl: AWSURL
-  bio:String
+  bio: String
   location: String
   website: AWSURL
   birthdate: AWSDate
@@ -64,7 +66,7 @@ interface IProfile {
   followersCount: Int!
   followingCount: Int!
   tweetsCount: Int!
-  likesCount: Int!
+  likesCounts: Int!
 }
 
 type MyProfile implements IProfile {
@@ -82,7 +84,7 @@ type MyProfile implements IProfile {
   followersCount: Int!
   followingCount: Int!
   tweetsCount: Int!
-  likesCount: Int!
+  likesCounts: Int!
 }
 
 type OtherProfile implements IProfile {
@@ -100,7 +102,7 @@ type OtherProfile implements IProfile {
   followersCount: Int!
   followingCount: Int!
   tweetsCount: Int!
-  likesCount: Int!
+  likesCounts: Int!
   following: Boolean!
   followedBy: Boolean!
 }
