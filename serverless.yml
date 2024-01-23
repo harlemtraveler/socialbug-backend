@@ -17,9 +17,6 @@ custom:
   appSync:
     - ${file(serverless.appsync-api.yml)}
 
-functions:
-  hello:
-    handler: handler.hello
 #  Resources:
 #    NewResource:
 #      Type: AWS::S3::Bucket
