@@ -130,7 +130,7 @@ type Reply implements ITweet {
   inReplyToTweet: ITweet!
   inReplyToUsers: [IProfile!]
   text: String!
-  relpies: Int!
+  replies: Int!
   likes: Int!
   retweets: Int!
   liked: Boolean!
