@@ -14,9 +14,15 @@ package:
     - package-lock.json
     - package.json
 
-custom:
-  appSync:
-    - ${file(serverless.appsync-api.yml)}
+appSync:
+  name: socialbug
+  schema: schema.api.graphql
+  authentication:
+    type: 'AMAZON_COGNITO_USER_POOLS'
+    config:
+      awsRegion: us-east-1
+      defaultAction: ALLOW
+      userPoolId: !Ref CognitoUserPool
 
 resources:
   Resources:
@@ -42,7 +48,7 @@ resources:
 
 
     WebUserPoolClient:
-      Type: AWS::Cognito::UserPool
+      Type: AWS::Cognito::UserPoolClient
       Properties:
         UserPoolId: !Ref CognitoUserPool
         ClientName: web
